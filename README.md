@@ -2,6 +2,17 @@
 
 Los pasos a seguir para realizar la instalación son:
 
-1 - Descargar el proyecto.
-2 - Ejecutar npm install para instalar los paquetes.
-3 - Ejecutar ionic server para levatar el servicio de ionic 
+### Step 1: Descargar proyecto
+```` 
+git clone https://github.com/joaquinrivera19/prex.git
+```` 
+
+### Step 2: Instalar los paquetes
+```` 
+npm install
+```` 
+
+### Step 3: Levantar servicio de ionic
+```` 
+ionic server
+```` 
