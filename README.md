@@ -16,3 +16,10 @@ npm install
 ```` 
 ionic server
 ```` 
+
+
+<p align="center"><img src="detalle_pelicula.png" width="400"></p>
+
+<p align="center"><img src="listado_peliculas.png" width="400"></p>
+
+<p align="center"><img src="login.png" width="400"></p>
