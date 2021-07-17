@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-card>
+      <ion-item color="danger">
+        <ion-label class="ion-text-center">Something are wrong!</ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="support-logo ion-text-center">
+    <img
+      src="/assets/login.png"
+      alt="Ionic Logo"
+      style="width: 50%; margin-top: 50px; margin-bottom: 30px"
+    />
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label color="primary" position="floating">Username: </ion-label>
+      <ion-input formControlName="username" type="text" name="username"></ion-input>
+    </ion-item>
+
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of errorMessages.username">
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('username').hasError(validation.type) && (loginForm.get('username').dirty || loginForm.get('username').touched)"
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">Password: </ion-label>
+      <ion-input
+        formControlName="password"
+        [type]="inputType"
+        name="password"
+      ></ion-input>
+
+      <ion-icon
+        class="type_password"
+        [name]="(inputType == 'password') ? 'eye' : 'eye-off'"
+        slot="end"
+        (click)="inputType = (inputType == 'password') ? 'text' : 'password';"
+      ></ion-icon>
+    </ion-item>
+
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of errorMessages.password">
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)"
+        >
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-button
+      expand="block"
+      color="light"
+      class="button_login ion-margin-top"
+      type="submit"
+      mode="ios"
+      [disabled]="loginForm.invalid"
+      >Login</ion-button
+    >
+
+    <ion-text class="ion-text-center">
+      <p>Create account</p>
+    </ion-text>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <div class="ion-text-center">Forgot password?</div>
+  </ion-toolbar>
+</ion-footer>

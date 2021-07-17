@@ -25,3 +25,24 @@
 #container a {
   text-decoration: none;
 }
+
+.ion-row {
+  //height: 180px;
+  margin-bottom: 20px;
+}
+
+.ion-col-img {
+  padding: 0px;
+}
+
+.ion-col-text {
+  background-color: #ccc;
+  padding-top: 15px;
+  border-radius: 0px 7px 7px 0px;
+}
+
+.item_conten {
+  border-radius: 10px 10px 10px 10px;
+  margin: 0px 10px;
+  height: 175px;
+}
