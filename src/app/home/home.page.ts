@@ -11,6 +11,12 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class HomePage {
   listado_peliculas: any[] = [];
+  result: any[] = [];
+  valor_rate1: boolean;
+  valor_rate2: boolean;
+  valor_rate3: boolean;
+  valor_rate4: boolean;
+  valor_rate5: boolean;
 
   constructor(
     private moviesService: MoviesService,
@@ -19,16 +25,20 @@ export class HomePage {
   ) {}
 
   async ngOnInit() {
-
     await this.storage.create();
 
     const result: any = await this.moviesService.getPopulares();
-
     this.listado_peliculas.push(...result.results);
+    this.storage.set('peliculas', this.listado_peliculas);
+  }
 
-    this.storage.set('peliculas',this.listado_peliculas)
+  async ionViewWillEnter() {
+    this.listado_peliculas = await this.storage.get('peliculas');
 
-    console.log(this.listado_peliculas);
+    this.listado_peliculas.sort(function (a,b) {
+      return a.id - b.id
+    })
+    
   }
 
   ver_pelicula(id: any) {

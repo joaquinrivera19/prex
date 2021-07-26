@@ -18,9 +18,8 @@
   </div>
 
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <ion-item>
-      <ion-label color="primary" position="floating">Username: </ion-label>
-      <ion-input formControlName="username" type="text" name="username"></ion-input>
+    <ion-item class="box">
+      <ion-input formControlName="username" type="text" name="username" placeholder="Username"></ion-input>
     </ion-item>
 
     <div class="validation-errors">
@@ -34,20 +33,8 @@
       </ng-container>
     </div>
 
-    <ion-item>
-      <ion-label color="primary" position="floating">Password: </ion-label>
-      <ion-input
-        formControlName="password"
-        [type]="inputType"
-        name="password"
-      ></ion-input>
-
-      <ion-icon
-        class="type_password"
-        [name]="(inputType == 'password') ? 'eye' : 'eye-off'"
-        slot="end"
-        (click)="inputType = (inputType == 'password') ? 'text' : 'password';"
-      ></ion-icon>
+    <ion-item class="box">
+      <ion-input formControlName="password" type="password" name="password" placeholder="Password"></ion-input>
     </ion-item>
 
     <div class="validation-errors">

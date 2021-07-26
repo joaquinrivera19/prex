@@ -10,7 +10,7 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-buttons slot="end" routerLink="/miorden">
+    <ion-buttons slot="end" (click)="edit()">
       <ion-button>
         <ion-icon name="create-outline"></ion-icon>
       </ion-button>
@@ -30,7 +30,7 @@
 
   <img src="https://image.tmdb.org/t/p/w500/{{pel.poster_path}}" alt="ion" style="width: 500px; height: 300px; object-fit: cover;">
 
-  <ion-list>
+  <ion-list *ngIf="!mostrar_editar">
 
     <ion-item lines="none">
       <ion-label class="ion-text-wrap" slot="start">
@@ -44,29 +44,41 @@
 
     <ion-item lines="none">
       <ion-buttons slot="start">
-        <ion-button>
-          <ion-icon size="small" name="star"></ion-icon>
+        <ion-button (click)="rate(1)">
+          <ion-icon size="small" name="star" [class.icon]="valor_rate1"></ion-icon>
         </ion-button>
-        <ion-button>
-          <ion-icon size="small" name="star"></ion-icon>
+        <ion-button (click)="rate(2)">
+          <ion-icon size="small" name="star" [class.icon]="valor_rate2"></ion-icon>
         </ion-button>
-        <ion-button>
-          <ion-icon size="small" name="star"></ion-icon>
+        <ion-button (click)="rate(3)">
+          <ion-icon size="small" name="star" [class.icon]="valor_rate3"></ion-icon>
         </ion-button>
-        <ion-button>
-          <ion-icon size="small" name="star"></ion-icon>
+        <ion-button (click)="rate(4)">
+          <ion-icon size="small" name="star" [class.icon]="valor_rate4"></ion-icon>
         </ion-button>
-        <ion-button>
-          <ion-icon size="small" name="star"></ion-icon>
+        <ion-button (click)="rate(5)">
+          <ion-icon size="small" name="star" [class.icon]="valor_rate5"></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-item>
 
     <ion-item lines="none">
-      <ion-label class="ion-text-wrap">
+      <ion-label class="ion-text-wrap ion-text-center">
         <p style="color: white;"><span class="bold_text">{{pel.overview}}</span></p>
       </ion-label>
     </ion-item>
   </ion-list>
+
+
+
+  <ion-item lines="none" *ngIf="mostrar_editar">
+    <ion-textarea [(ngModel)]="overview" value="{{pel.overview}}" rows="6" cols="20"></ion-textarea>
+  </ion-item>
+
+  <ion-item *ngIf="mostrar_editar">
+    <ion-button (click)="guardar()" full="block">Editar</ion-button>
+  </ion-item>
+
+  
 
 </ion-content>
