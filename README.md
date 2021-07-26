@@ -1,5 +1,7 @@
 ## Desarrollo aplicación mobile Prex
 
+La aplicación utiliza la API de https://api.themoviedb.org para obtener la informacion de las peliculas. Una vez obtenida los datos se almacenan en el storage para editar su contenido.
+
 Los pasos a seguir para realizar la instalación son:
 
 ### Step 1: Descargar proyecto
